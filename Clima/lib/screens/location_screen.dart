@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:clima/utilities/constants.dart';
 import 'package:clima/services/weather.dart';
+import 'city_screen.dart';
 
 class LocationScreen extends StatefulWidget {
 
@@ -30,6 +31,14 @@ String message = '';
 
   void updateUI(dynamic weatherData){
 setState(() {
+  if(weatherData == null)
+    {
+      temprature = 0;
+      weatherIcon = "Error";
+      message="unable to get location";
+      cityName="";
+      return;
+    }
   int condition = weatherData['weather'][0]['id'];
   double temp = weatherData['main']['temp'];
   temprature = temp.toInt();
@@ -62,18 +71,32 @@ setState(() {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              Row(
+                Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   FlatButton(
-                    onPressed: () {},
+                    onPressed: () async{
+                      var weatherData = await weather.getLocationWeather();
+                      setState(() {
+                        updateUI(weatherData);
+                      });
+                      },
                     child: Icon(
                       Icons.near_me,
                       size: 50.0,
                     ),
                   ),
                   FlatButton(
-                    onPressed: () {},
+                    onPressed: () async{
+                      var typedName = await Navigator.push(context, MaterialPageRoute(builder: (context){
+                        return CityScreen();
+                      }));
+                      if(typedName!=null)
+                        {
+                          var weatherData = await weather.getCityWeather(typedName);
+                          updateUI(weatherData);
+                        }
+                    },
                     child: Icon(
                       Icons.location_city,
                       size: 50.0,
