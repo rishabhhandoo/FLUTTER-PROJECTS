@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1031055839087",
+    "project_id": "flash-chat-8fec6",
+    "storage_bucket": "flash-chat-8fec6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1031055839087:android:46d3b160b6ec5fc7f4e29a",
+        "android_client_info": {
+          "package_name": "com.rishanhandoo.flash_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1031055839087-e2r14h588qb3kp5s3hh8145f77bq9qea.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAx58vRNo_cTJmI3XQyC1zdX_k8xc6YU8E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1031055839087-e2r14h588qb3kp5s3hh8145f77bq9qea.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
